@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .linear-gradient {
+    background: linear-gradient(135deg, #55ddff, #c058f3);
+  }
+
+  .icon-check {
+    @apply flex items-center justify-center text-white h-full text-[12px];
+  }
+
+  .li-style {
+    @apply py-5 bg-white border-b border-gray-300 relative pl-16 select-none;
+  }
+
+  .spancha {
+    @apply block absolute transform -translate-y-1/2 top-1/2 h-6 w-6 border  border-borderColor rounded-full left-3 ml-4;
+  }
+  .complated {
+    @apply text-stone-400 line-through;
+  }
+}
