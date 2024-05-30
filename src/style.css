@@ -18,7 +18,10 @@
   .spancha {
     @apply block absolute transform -translate-y-1/2 top-1/2 h-6 w-6 border  border-borderColor rounded-full left-3 ml-4;
   }
-  .complated {
+  .completed {
     @apply text-stone-400 line-through;
+  }
+  .filterStyle {
+    @apply text-sm cursor-pointer mr-[7px] text-inputText font-bold hover:text-slate-600 transition select-none;
   }
 }

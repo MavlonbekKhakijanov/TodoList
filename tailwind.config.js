@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "*.{html,js}", // Loyihangizdagi haqiqiy yo'llarni bu yerga qo'shing
-  ],
+  content: ["*.{html,js}"],
   theme: {
     extend: {
       colors: {
@@ -14,7 +12,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("daisyui"), // DaisyUI pluginini qo'shing
-  ],
+  plugins: [require("daisyui")],
 };

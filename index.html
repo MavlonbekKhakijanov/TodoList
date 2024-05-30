@@ -36,8 +36,26 @@
         </form>
         <ul
           id="ul"
-          class="relative w-full mt-6 rounded-md overflow-hidden shadow-lg shadow-gray-300"
-        ></ul>
+          class="relative mt-6 rounded-md max-h-72 overflow-auto shadow-lg shadow-gray-300"
+        >
+          <p
+            class="bg-white flex justify-between items-center px-6 border-b border-gray-300"
+          >
+            <span id="all-items" class="text-sm py-4 text-inputText select-none"
+              ><span id="number" class="select-none">0</span> all items</span
+            >
+            <span id="filter flex ">
+              <span class="filterStyle" id="all">All</span>
+              <span class="filterStyle" id="active">Active</span>
+              <span class="filterStyle" id="completed">Completed</span>
+            </span>
+            <span
+              class="text-sm cursor-pointer text-inputText hover:text-red-400 select-none"
+              id="delete-completed"
+              >Delete Completed</span
+            >
+          </p>
+        </ul>
       </div>
     </div>
 
