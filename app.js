@@ -18,9 +18,11 @@ formEl.addEventListener("submit", (e) => {
     const spanRound = document.createElement("span");
     const icon = document.createElement("i");
     const paragrfText = document.createElement("p");
+    const deleteIcon = document.createElement("i");
 
     // Klasslarni qo'shish
     icon.setAttribute("class", "icon-check fa-solid fa-check");
+    deleteIcon.setAttribute("class", "delete-icon fa-regular fa-trash-can");
     spanRound.classList.add("spancha");
     li.classList.add("li-style");
     paragrfText.textContent = formEl.input.value;
@@ -31,6 +33,7 @@ formEl.addEventListener("submit", (e) => {
     // Li ichiga span va matn qo'shish
     li.appendChild(spanRound);
     li.appendChild(paragrfText);
+    li.appendChild(deleteIcon);
 
     // Ul ichiga li qo'shish
     ulEl.appendChild(li);
@@ -43,15 +46,18 @@ formEl.addEventListener("submit", (e) => {
     formEl.input.value = "";
 
     // Yangi yaratilgan li elementga dblclick hodisasini qo'shish
-    li.addEventListener("dblclick", (e) => {
+    li.addEventListener("dblclick", () => {
       li.classList.toggle("completed");
       if (li.classList.contains("completed")) {
-        icon.setAttribute("class", "icon-check fa-solid fa-check");
         spanRound.appendChild(icon);
         spanRound.classList.add("linear-gradient");
       } else {
         spanRound.classList.remove("linear-gradient");
+        spanRound.appendChild(icon).remove(icon);
       }
+    });
+    deleteIcon.addEventListener("click", (e) => {
+      e.target.parentElement.remove();
     });
   }
 });
@@ -59,9 +65,10 @@ formEl.addEventListener("submit", (e) => {
 // Filtr
 const filterTasks = (filter) => {
   const allTasks = document.querySelectorAll("#ul li");
+  console.log(allTasks);
   allTasks.forEach((task) => {
     switch (filter) {
-      case "all":
+      case "farxod":
         task.style.display = "flex";
         break;
       case "active":
@@ -79,7 +86,7 @@ const filterTasks = (filter) => {
 };
 
 // Filtr event listenerlari
-allFilter.addEventListener("click", () => filterTasks("all"));
+allFilter.addEventListener("click", () => filterTasks("farxod"));
 activeFilter.addEventListener("click", () => filterTasks("active"));
 completedFilter.addEventListener("click", () => filterTasks("completed"));
 

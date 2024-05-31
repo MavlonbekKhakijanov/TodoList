@@ -15,6 +15,10 @@
     @apply py-5 bg-white border-b border-gray-300 relative pl-16 select-none;
   }
 
+  .delete-icon {
+    @apply absolute transform -translate-y-1/2 top-1/2 right-6 text-gray-600 hover:cursor-pointer hover:text-red-600;
+  }
+
   .spancha {
     @apply block absolute transform -translate-y-1/2 top-1/2 h-6 w-6 border  border-borderColor rounded-full left-3 ml-4;
   }
