@@ -14,6 +14,9 @@
   .li-style {
     @apply py-5 bg-white border-b border-gray-300 relative pl-16 select-none;
   }
+  .data {
+    @apply absolute transform -translate-y-1/2 top-1/2 text-gray-400 text-[12px] right-24;
+  }
 
   .delete-icon {
     @apply absolute transform -translate-y-1/2 top-1/2 right-6 text-gray-600 hover:cursor-pointer hover:text-red-600;

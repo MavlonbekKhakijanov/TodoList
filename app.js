@@ -8,7 +8,27 @@ const activeFilter = document.querySelector("#active");
 const completedFilter = document.querySelector("#completed");
 const deleteCompleted = document.querySelector("#delete-completed");
 let itemCount = 0;
+let now = new Date();
+let today = now.getDate() < 10 ? "0" + now.getDate() : now.getDate();
+let year = now.getFullYear();
+let hour = now.getHours() < 10 ? "0" + now.getHours() : now.getHours();
+let minute = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
+let months = [
+  "Yanvar",
+  "Fevral",
+  "Mart",
+  "Aprel",
+  "May",
+  "Iyun",
+  "Iyul",
+  "Avgust",
+  "Sentyabr",
+  "Oktyabr",
+  "Noyabr",
+  "Dekabr",
+];
 
+let data = `${today}. ${months[now.getMonth()]}. ${year} ${hour}:${minute}`;
 formEl.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!formEl.input.value.trim()) {
@@ -19,12 +39,18 @@ formEl.addEventListener("submit", (e) => {
     const icon = document.createElement("i");
     const paragrfText = document.createElement("p");
     const deleteIcon = document.createElement("i");
+    const nowData = document.createElement("span");
 
     // Klasslarni qo'shish
     icon.setAttribute("class", "icon-check fa-solid fa-check");
     deleteIcon.setAttribute("class", "delete-icon fa-regular fa-trash-can");
+    nowData.setAttribute("class", "data");
     spanRound.classList.add("spancha");
     li.classList.add("li-style");
+    nowData.textContent = `${today}. ${
+      months[now.getMonth()]
+    }. ${year} ${now.getHours()}:${now.getMinutes()}`;
+
     paragrfText.textContent = formEl.input.value;
 
     // Span ichiga iconni qo'shish
@@ -34,6 +60,7 @@ formEl.addEventListener("submit", (e) => {
     li.appendChild(spanRound);
     li.appendChild(paragrfText);
     li.appendChild(deleteIcon);
+    li.appendChild(nowData);
 
     // Ul ichiga li qo'shish
     ulEl.appendChild(li);
@@ -42,12 +69,11 @@ formEl.addEventListener("submit", (e) => {
 
     errorMesg.textContent = "";
 
-    // Input qiymatini tozalash
     formEl.input.value = "";
 
-    // Yangi yaratilgan li elementga dblclick hodisasini qo'shish
     li.addEventListener("dblclick", () => {
       li.classList.toggle("completed");
+
       if (li.classList.contains("completed")) {
         spanRound.appendChild(icon);
         spanRound.classList.add("linear-gradient");
