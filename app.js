@@ -7,6 +7,9 @@ const allFilter = document.querySelector("#all");
 const activeFilter = document.querySelector("#active");
 const completedFilter = document.querySelector("#completed");
 const deleteCompleted = document.querySelector("#delete-completed");
+const hourEl = document.querySelector("#hourEl");
+const minuteEl = document.querySelector("#minuteEl");
+const secondeEl = document.querySelector("#secondeEl");
 let itemCount = 0;
 
 const getDate = () => {
@@ -16,6 +19,8 @@ const getDate = () => {
   let hour = now.getHours() < 10 ? "0" + now.getHours() : now.getHours();
   let minute =
     now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
+  let seconde =
+    now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds();
   let months = [
     "Yanvar",
     "Fevral",
@@ -30,11 +35,17 @@ const getDate = () => {
     "Noyabr",
     "Dekabr",
   ];
+  hourEl.textContent = `${hour}:`;
+  minuteEl.textContent = `${minute}:`;
+  secondeEl.textContent = seconde;
   let counyerTime = `${today}.${
     months[now.getMonth()]
   }. ${year}, ${hour} : ${minute}`;
   return counyerTime;
 };
+setInterval(() => {
+  getDate();
+}, 1000);
 
 // let data = `${today}. ${months[now.getMonth()]}. ${year} ${hour}:${minute}`;
 formEl.addEventListener("submit", (e) => {

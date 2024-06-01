@@ -1385,6 +1385,18 @@ html {
   padding-top: 3.5rem;
 }
 
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
+.pt-\[10px\] {
+  padding-top: 10px;
+}
+
+.pt-\[23px\] {
+  padding-top: 23px;
+}
+
 .text-\[40px\] {
   font-size: 40px;
 }
@@ -1399,12 +1411,28 @@ html {
   line-height: 1.25rem;
 }
 
+.text-\[30px\] {
+  font-size: 30px;
+}
+
+.text-\[25px\] {
+  font-size: 25px;
+}
+
 .font-bold {
   font-weight: 700;
 }
 
 .tracking-\[15px\] {
   letter-spacing: 15px;
+}
+
+.tracking-\[1px\] {
+  letter-spacing: 1px;
+}
+
+.tracking-\[3px\] {
+  letter-spacing: 3px;
 }
 
 .text-inputText {
