@@ -10,6 +10,9 @@ const deleteCompleted = document.querySelector("#delete-completed");
 const hourEl = document.querySelector("#hourEl");
 const minuteEl = document.querySelector("#minuteEl");
 const secondeEl = document.querySelector("#secondeEl");
+const modalEl = document.querySelector("#my_modal_5");
+const editInput = document.querySelector("#edit-input");
+const editBtn = document.querySelector("#edit-btn");
 let itemCount = 0;
 
 const getDate = () => {
@@ -58,12 +61,14 @@ formEl.addEventListener("submit", (e) => {
     const icon = document.createElement("i");
     const paragrfText = document.createElement("p");
     const deleteIcon = document.createElement("i");
+    const editElement = document.createElement("i");
     const nowData = document.createElement("span");
     nowData.textContent = getDate();
 
     // Klasslarni qo'shish
     icon.setAttribute("class", "icon-check fa-solid fa-check");
     deleteIcon.setAttribute("class", "delete-icon fa-regular fa-trash-can");
+    editElement.setAttribute("class", "edite-icon fa-solid fa-pencil");
     nowData.setAttribute("class", "data");
     spanRound.classList.add("spancha");
     li.classList.add("li-style");
@@ -77,8 +82,13 @@ formEl.addEventListener("submit", (e) => {
     li.appendChild(spanRound);
     li.appendChild(paragrfText);
     li.appendChild(deleteIcon);
+    li.appendChild(editElement);
     li.appendChild(nowData);
 
+    // listener edit
+    editElement.addEventListener("click", () => {
+      modalEl.showModal();
+    });
     // Ul ichiga li qo'shish
     ulEl.appendChild(li);
     itemCount++;
@@ -93,10 +103,12 @@ formEl.addEventListener("submit", (e) => {
 
       if (li.classList.contains("completed")) {
         spanRound.appendChild(icon);
+        editElement.classList.add("text-gray-300");
         spanRound.classList.add("linear-gradient");
       } else {
         spanRound.classList.remove("linear-gradient");
         spanRound.appendChild(icon).remove(icon);
+        editElement.classList.remove("text-gray-300");
       }
     });
 
@@ -106,9 +118,11 @@ formEl.addEventListener("submit", (e) => {
       if (li.classList.contains("completed")) {
         spanRound.appendChild(icon);
         spanRound.classList.add("linear-gradient");
+        editElement.classList.add("text-gray-300");
       } else {
         spanRound.classList.remove("linear-gradient");
         spanRound.appendChild(icon).remove(icon);
+        editElement.classList.remove("text-gray-300");
       }
     });
     deleteIcon.addEventListener("click", (e) => {
@@ -117,6 +131,10 @@ formEl.addEventListener("submit", (e) => {
       number.textContent = itemCount;
     });
   }
+  // edit input;
+  editBtn.addEventListener("click", () => {
+    console.log(editInput.value);
+  });
 });
 
 // Filtr
